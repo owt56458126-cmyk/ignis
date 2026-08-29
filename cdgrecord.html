@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ignis - CDG Record</title>
+    <link rel="stylesheet" href="ignis.css">
+    <link href="https://fonts.googleapis.com/css2?family=Impact&family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        .record-section {
+            max-width: 800px;
+            margin: 0 auto 2.5rem auto;
+        }
+        .record-section-title {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #ff6600;
+            text-align: left;
+            border-bottom: 2px solid #ff6600;
+            padding-bottom: 0.4rem;
+            margin-bottom: 1rem;
+        }
+        .record-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .record-card {
+            background: #181818;
+            border: 1px solid #333;
+            border-left: 4px solid #ff6600;
+            border-radius: 8px;
+            padding: 1.2rem 1.5rem;
+            text-align: left;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .record-card:hover {
+            transform: translateY(-2px);
+            border-color: #ff6600;
+        }
+        .record-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 0.4rem;
+        }
+        .record-holder {
+            color: #ccc;
+            font-size: 0.95rem;
+        }
+        
+        .submit-section {
+            max-width: 800px;
+            margin: 3rem auto 1.5rem auto;
+            background: #181818;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 2rem;
+        }
+        .submit-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            text-align: left;
+        }
+        .form-group label {
+            color: #ff6600;
+            font-weight: bold;
+        }
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            padding: 0.8rem;
+            background: #222;
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 6px;
+            outline: none;
+            font-family: inherit;
+        }
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            border-color: #ff6600;
+        }
+        .submit-btn {
+            background: #ff6600;
+            color: #fff;
+            font-weight: bold;
+            padding: 0.9rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+        .submit-btn:hover {
+            background: #e05500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <header class="hero-section">
+            <h1 class="brand-title">IGNIS</h1>
+            <p class="brand-tagline">學生會候選內閣</p>
+        </header>
+
+        <nav class="sticky-navbar">
+            <div class="nav-tabs">
+                <a href="ignis.html" class="nav-link-btn">主頁</a>
+                <a href="platform.html" class="nav-link-btn">政綱</a>
+                <a href="welfare.html" class="nav-link-btn">福利</a>
+                <a href="events.html" class="nav-link-btn">活動</a>
+                <button class="nav-link active">CDG Record</button>
+                <a href="contact.html" class="nav-link-btn">聯絡我們</a>
+            </div>
+            <div class="search-container">
+                <input type="text" id="recordSearchInput" placeholder="搜尋紀錄..." onkeypress="handleRecordSearch(event)">
+                <button class="search-btn" onclick="executeRecordSearch()">搜尋</button>
+            </div>
+        </nav>
+
+        <main class="content-sections">
+
+            <div class="category-header">CDG Record</div>
+
+            <section class="about-card" style="max-width: 800px; margin: 0 auto 2rem auto; text-align: left; padding: 1.5rem;">
+                <p style="color: #ddd; line-height: 1.8; margin: 0;">
+                    本閣將會設立專屬學生紀錄，無論是學術或是娛樂的卓越成就，都可能納入其中。同學可以在空餘時間挑戰其他同學創下的紀錄或超越自我，在挑戰的過程中一嘗滿足的滋味，為校園生活增添一點色彩。
+                </p>
+            </section>
+
+            <!-- 藝術 Art -->
+            <div class="record-section" id="artSection">
+                <div class="record-section-title">藝術 Art</div>
+                <div class="record-container">
+                    <div class="record-card">
+                        <div class="record-title">紀錄名稱</div>
+                        <div class="record-holder">紀錄保持者：待定</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 體育 Sports -->
+            <div class="record-section" id="sportsSection">
+                <div class="record-section-title">體育 Sports</div>
+                <div class="record-container">
+                    <div class="record-card">
+                        <div class="record-title">紀錄名稱</div>
+                        <div class="record-holder">紀錄保持者：待定</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 其他 Others -->
+            <div class="record-section" id="othersSection">
+                <div class="record-section-title">其他 Others</div>
+                <div class="record-container">
+                    <div class="record-card">
+                        <div class="record-title">紀錄名稱</div>
+                        <div class="record-holder">紀錄保持者：待定</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 紀錄投稿／挑戰申請區塊 -->
+            <section class="submit-section">
+                <div class="record-section-title" style="border-bottom: none; margin-bottom: 0.5rem;">提交／挑戰紀錄</div>
+                <p style="color: #aaa; text-align: left; margin-top: 0; margin-bottom: 1.5rem; font-size: 0.9rem;">
+                    想創立新紀錄或挑戰現有紀錄保持者？請填妥以下表格提交申請！
+                </p>
+
+                <form action="https://formsubmit.co/cdg220085@school.cdgfss.edu.hk" method="POST" class="submit-form">
+                    
+                    <input type="hidden" name="_subject" value="CDG Record 新紀錄申請/挑戰">
+                    <input type="hidden" name="_captcha" value="false">
+
+                    <div class="form-group">
+                        <label for="applicantName">申請人姓名及班別</label>
+                        <input type="text" id="applicantName" name="applicantName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="applicantEmail">Gmail 電郵地址</label>
+                        <input type="email" id="applicantEmail" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recordCategory">紀錄類別</label>
+                        <select id="recordCategory" name="recordCategory" required>
+                            <option value="藝術 Art">藝術 Art</option>
+                            <option value="體育 Sports">體育 Sports</option>
+                            <option value="其他 Others">其他 Others</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recordTitle">申請／挑戰紀錄項目名稱</label>
+                        <input type="text" id="recordTitle" name="recordTitle" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recordDetails">請簡述你的記錄成績及提供證明方式</label>
+                        <textarea id="recordDetails" name="recordDetails" rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">提交紀錄申請</button>
+                </form>
+            </section>
+
+        </main>
+
+        <footer class="main-footer">
+            <p>© 2026 學生會候選內閣 IGNIS.</p>
+        </footer>
+    </div>
+
+    <script src="ignis.js"></script>
+    <script>
+        function handleRecordSearch(event) {
+            if (event.key === 'Enter') {
+                executeRecordSearch();
+            }
+        }
+
+        function executeRecordSearch() {
+            const input = document.getElementById('recordSearchInput');
+            if (!input) return;
+
+            const query = input.value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.record-card');
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

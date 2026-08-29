@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ignis - 活動</title>
+    <link rel="stylesheet" href="ignis.css">
+    <link href="https://fonts.googleapis.com/css2?family=Impact&family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        .events-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .events-section {
+            margin-bottom: 2.5rem;
+        }
+        .events-section-title {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #ff6600;
+            border-bottom: 2px solid #ff6600;
+            padding-bottom: 0.4rem;
+            margin-bottom: 1.2rem;
+        }
+        .events-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+        }
+        .event-card {
+            background: #181818;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.2s, border-color 0.2s;
+            position: relative;
+        }
+        .event-card:hover {
+            border-color: #ff6600;
+            transform: translateY(-2px);
+        }
+        .event-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        .event-time {
+            color: #ff6600;
+            font-size: 0.95rem;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+        }
+        .event-desc {
+            color: #ccc;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .sub-event {
+            margin-top: 1rem;
+            padding-left: 1rem;
+            border-left: 2px solid #ff6600;
+        }
+        .sub-event-title {
+            font-weight: bold;
+            color: #ff6600;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <header class="hero-section">
+            <h1 class="brand-title">IGNIS</h1>
+            <p class="brand-tagline">學生會候選內閣</p>
+        </header>
+
+        <nav class="sticky-navbar">
+            <div class="nav-tabs">
+                <a href="ignis.html" class="nav-link-btn">主頁</a>
+                <a href="platform.html" class="nav-link-btn">政綱</a>
+                <a href="welfare.html" class="nav-link-btn">福利</a>
+                <button class="nav-link active">活動</button>
+                <a href="cdgrecord.html" class="nav-link-btn">CDG Record</a>
+                <a href="contact.html" class="nav-link-btn">聯絡我們</a>
+            </div>
+            <div class="search-container">
+                <input type="text" id="eventsSearchInput" placeholder="搜尋活動..." onkeypress="handleEventsSearch(event)">
+                <button class="search-btn" onclick="executeEventsSearch()">搜尋</button>
+            </div>
+        </nav>
+
+        <main class="content-sections">
+
+            <div class="category-header">活動總覽</div>
+
+            <div class="events-container">
+
+                <!-- 大型活動 -->
+                <section class="events-section">
+                    <div class="events-section-title">大型活動</div>
+                    <div class="events-grid">
+                        <div class="event-card">
+                            <div class="event-title">1. Talent Show</div>
+                            <div class="event-time">詳細活動時間待定</div>
+                            <p class="event-desc">為了讓同學能夠透過不同的舞台發光發亮，本閣將會舉辦 Talent Show 作為平台，讓同學展現自己獨特的才能。特設師生組別促進師生交流，並積極嘗試邀請名人嘉賓出席，凝聚全校師生共創美好回憶。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 小型活動 -->
+                <section class="events-section">
+                    <div class="events-section-title">小型活動</div>
+                    <div class="events-grid">
+                        <div class="event-card">
+                            <div class="event-title">1. 體育比賽</div>
+                            <div class="event-time">詳細活動時間待定</div>
+                            <p class="event-desc">促進班內凝聚力，增強同學對班級的歸屬感，培養團隊合作精神及體育精神。</p>
+                            
+                            <div class="sub-event">
+                                <div class="sub-event-title">1.1 班際籃球比賽</div>
+                                <div class="event-time">詳細活動時間待定</div>
+                                <p class="event-desc">全場比賽，每班男女各 5 名正選及最多 2 名後備。高中組上學期放學後進行，初中組下學期放學後及週會進行。按 FIBA 規則執行。</p>
+                            </div>
+                            <div class="sub-event">
+                                <div class="sub-event-title">1.2 班際羽毛球比賽</div>
+                                <div class="event-time">詳細活動時間待定</div>
+                                <p class="event-desc">於籃球賽後舉行，每班男女各 2 名正選及最多 2 名後備。按 BWF 規則進行，每局 10 分鐘。</p>
+                            </div>
+                            <div class="sub-event">
+                                <div class="sub-event-title">1.3 師生足球比賽</div>
+                                <div class="event-time">詳細活動時間待定</div>
+                                <p class="event-desc">分為男子組及女子組進行，不分年齡班級，自由組隊（5 正選 2 後備），可邀請老師入隊，上限 8 隊。按 FIFA 五人足球球例進行。</p>
+                            </div>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-title">2. 星火灼夜</div>
+                            <div class="event-time">詳細活動時間待定</div>
+                            <p class="event-desc">跨時段體驗活動，包含密室逃脫、劇本殺、燒烤及圍爐夜話，讓師生在寧靜校園中放鬆傾談，拉近彼此距離。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 其他活動 -->
+                <section class="events-section">
+                    <div class="events-section-title">其他活動</div>
+                    <div class="events-grid">
+                        <div class="event-card">
+                            <div class="event-title">1. 校政問答大會</div>
+                            <div class="event-time">詳細活動時間待定</div>
+                            <p class="event-desc">於週會期間舉行，供同學現場向負責老師提問校政問題，了解政策背景與意涵。</p>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-title">2. 聖誕聯歡會畫黑板比賽</div>
+                            <div class="event-time">詳細活動時間待定</div>
+                            <p class="event-desc">發揮班級團隊合作與創造力，為課室增添節日氣氛，共同完成特色黑板畫作。</p>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-title">3. 中六打氣周活動</div>
+                            <div class="event-time">詳細活動時間待定</div>
+                            <p class="event-desc">於中六 Last Day 前舉行，包含：打氣牆（地下/二樓繪馬牆）、打氣包（福袋及卡片）、平價文具售賣及中央廣播點歌服務。</p>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-title">4. 敬師日</div>
+                            <div class="event-time">詳細活動時間待定</div>
+                            <p class="event-desc">設置繪馬牆心意留言、製作敬師拍攝短片，並致送小禮物感謝老師的悉心指導。</p>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-title">5. 手機攝影比賽</div>
+                            <div class="event-time">詳細活動時間待定</div>
+                            <p class="event-desc">限制手機拍攝，提供 5 個主題供發揮，由老師評審並安排於校內展出優秀作品。</p>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-title">6. CDG Record 紀錄大典</div>
+                            <div class="event-time">詳細活動時間待定</div>
+                            <p class="event-desc">主恩人專屬紀錄大典，涵蓋學術與娛樂項目，鼓勵同學挑戰自我、刷新紀錄。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 聯校活動 -->
+                <section class="events-section">
+                    <div class="events-section-title">聯校活動</div>
+                    <div class="events-grid">
+                        <div class="event-card">
+                            <div class="event-title">1. 聯校聖誕聯歡會</div>
+                            <div class="event-time">詳細活動時間待定</div>
+                            <p class="event-desc">聯同外校舉辦，讓同學拓展社交圈子、認識新朋友，同時放鬆身心感受節日氛圍。</p>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-title">2. 聯校試卷交換</div>
+                            <div class="event-time">詳細活動時間待定</div>
+                            <p class="event-desc">聯同數間學校交換中六 Mock Exam 試卷，讓應屆考生熟悉更多題型備戰 DSE。</p>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-title">3. 聯校舞蹈及樂隊比賽</div>
+                            <div class="event-time">詳細活動時間待定</div>
+                            <p class="event-desc">聯同兄弟學校舉辦賽事，提供舞台讓同學展現音樂與舞蹈才華，互相切磋學習。</p>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-title">4. 聯校英文口試練習</div>
+                            <div class="event-time">詳細活動時間待定</div>
+                            <p class="event-desc">為中五及中六同學提供跨校口試練習平台，增加實戰經驗以備戰公開試。</p>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+        </main>
+
+        <footer class="main-footer">
+            <p>© 2026 學生會候選內閣 IGNIS.</p>
+        </footer>
+    </div>
+
+    <script src="ignis.js"></script>
+    <script>
+        function handleEventsSearch(event) {
+            if (event.key === 'Enter') {
+                executeEventsSearch();
+            }
+        }
+
+        function executeEventsSearch() {
+            const input = document.getElementById('eventsSearchInput');
+            if (!input) return;
+
+            const query = input.value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.event-card');
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
